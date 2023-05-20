@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
-import "./index.css"; // Import the CSS file for the NavigationBar component
+import "./navigation.css";
 
 const NavigationBar = () => {
   return (

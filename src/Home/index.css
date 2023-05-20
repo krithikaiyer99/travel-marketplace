@@ -1,46 +1,6 @@
-nav {
-    color: #333;
-    margin-top: 20px;
-    margin-left: 40px;
-    margin-right: 40px;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: flex-end;
-}
-
-nav li {
-    margin-left: 10px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-}
-
-nav a:hover {
-    color: rgb(230, 186, 8);
-}
-
-a.button:hover {
-    background-color: #fff;
-}
-
-.logo {
-    background-color: rgb(246, 233, 51);
-    height: 20px;
-    width: 20px;
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
+.home {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .text {
@@ -71,98 +31,6 @@ a.button:hover {
     margin: 10px 0;
 }
 
-.search-box-outer-container {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-}
-
-.search-box-container {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    height: 50%;
-    width: 50%;
-}
-
-.search-box-inner {
-    margin: 20px;
-}
-
-.search-items {
-    border: none;
-    border-bottom: 1px solid #ccc;
-    margin: 10px 0;
-}
-
-.search-items ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-
-.search-items li {
-    margin-left: 10px;
-    font-size: smaller;
-    font-weight: bold;
-    color: #5b5858;
-    cursor: pointer;
-}
-
-.search-items li.selected {
-    text-decoration: none;
-    color: rgb(29, 100, 176);
-}
-
-.travelers-dropdown {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.travelers-dropdown select {
-    border: none;
-    outline: none;
-    background-color: white;
-    color: rgb(29, 100, 176);
-}
-
-.search-box-where {
-    border: 1px solid #9b9999;
-    border-radius: 4px;
-    margin-right: 10px;
-    padding: 10px;
-    width: 50%;
-    position: relative;
-}
-
-.placeholder {
-    color: #ccc;
-    padding: 10px
-}
-
-.search-box-search-field {
-    margin-top: 10px;
-    display: flex;
-}
-
-.search-box-checkinout {
-    border: 1px solid #9b9999;
-    border-radius: 4px;
-    padding: 10px;
-    display: flex;
-    width: 15%;
-    margin-right: 10px;
-}
-
-.search-go-button {
-    width: 20%;
-    text-align: center;
-    padding: 10px;
-    background-color: rgb(42, 112, 187);
-    color: white;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
 .button-container {
     margin-top: 10px;
     display: flex;
@@ -172,7 +40,6 @@ a.button:hover {
 .search-input {
     border: none;
     outline: none;
-    /* Add this line */
 }
 
 .suggestions {
@@ -204,4 +71,10 @@ a.button:hover {
     border: none;
     outline: none;
     width: 80%;
+}
+
+.spacing {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
 }

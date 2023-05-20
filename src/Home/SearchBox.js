@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { faMapMarkerAlt, faCalendar } from "@fortawesome/free-solid-svg-icons";
-
-import "./index.css";
+import "./searchbox.css";
 
 const SearchBox = () => {
   const [selectedItem, setSelectedItem] = useState("Stays");
