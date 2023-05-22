@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import "./navigation.css";
 
 const NavigationBar = () => {
+  const user = useSelector((state) => state.user.user);
   return (
     <>
     <nav>
@@ -22,7 +24,7 @@ const NavigationBar = () => {
           <a href="/tour">Tour</a>
         </li>
         <li>
-          <a href="/signin">Sign In</a>
+          <a href="/signin">{user && user.firstName ? user.firstName : 'Sign In'}</a>
         </li>
       </ul>
     </nav>
