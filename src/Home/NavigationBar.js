@@ -22,7 +22,7 @@ const NavigationBar = () => {
           <a href="/tour">Tour</a>
         </li>
         <li>
-          <a href="/login">Sign In</a>
+          <a href="/signin">Sign In</a>
         </li>
       </ul>
     </nav>
