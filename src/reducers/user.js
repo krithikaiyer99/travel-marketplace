@@ -6,13 +6,13 @@ import {
 } from "../services/user-thunk";
 
 const initialState = {
-  user: null,
+  user: {},
 };
 
 const userSlice = createSlice({
   name: "user",
   initialState,
-  reducers: (builder) => {
+  extraReducers: (builder) => {
     builder.addCase(signinThunk.fulfilled, (state, { payload }) => {
       console.log("here in reducer")
       if (payload) {

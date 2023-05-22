@@ -14,14 +14,14 @@ var templateUser = {
 };
 
 export const signinThunk = createAsyncThunk(
-  "users/signin",
+  "user/signin",
   async ({ username, password }) => {
     return await service.signin({ username, password });
   }
 );
 
 export const registerThunk = createAsyncThunk(
-  "users/register",
+  "user/register",
   async (user) => {
     return await service.register( {
       ...templateUser,
@@ -31,7 +31,7 @@ export const registerThunk = createAsyncThunk(
 );
 
 export const updateUserThunk = createAsyncThunk(
-  "users/updateUser",
+  "user/updateUser",
   async (user) => {
     return await service.updateUser(user);
   }

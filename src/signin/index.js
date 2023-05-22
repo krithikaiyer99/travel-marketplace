@@ -10,10 +10,10 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
     console.log("Sign in:", email, password);
-    await dispatch(signinThunk({ email, password }))
+    dispatch(signinThunk({ email, password }))
     navigate("/");
   };
 
