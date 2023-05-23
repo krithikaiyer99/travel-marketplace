@@ -1,0 +1,63 @@
+.profile-input-box {
+    margin-bottom: 10px;
+}
+
+.profile-input {
+    border: 1px solid #9b9999;
+    border-radius: 6px;
+    padding: 10px;
+    width: 40%;
+}
+
+.dob-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.dob-input-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dob-input {
+    border: 1px solid #9b9999;
+    border-radius: 6px;
+    padding: 10px;
+    width: 80px;
+}
+
+.radio-button-container {
+    margin-bottom: 10px;
+}
+
+.counter-button {
+    margin: 0 5px;
+    padding: 5px;
+}
+
+.heading {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.save-button {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    width: 40%;
+    ;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.profile-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  

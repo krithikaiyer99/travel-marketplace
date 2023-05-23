@@ -1,0 +1,27 @@
+nav {
+    color: #333;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    background-color: rgb(246, 233, 51);
+    height: 20px;
+    width: 20px;
+    padding: 5px;
+    border-radius: 4px;
+
+}
+
+.logo-container {
+    display: flex;
+}
+
+.back-icon {
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  
