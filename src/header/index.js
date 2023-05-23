@@ -1,5 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+
 import {
   faPlaneDeparture,
   faArrowLeft,
@@ -7,8 +9,9 @@ import {
 import "./index.css";
 
 const Header = () => {
+  const navigate = useNavigate();
   const goBack = () => {
-    window.history.back();
+    navigate("/");
   };
   return (
     <>

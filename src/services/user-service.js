@@ -17,3 +17,10 @@ export const updateUser = async (user) => {
         .put(`${USER_API}/${user._id}`, user);
     return response.data;
 }
+
+export const findUserById = async (id) => {
+    console.log(`${USER_API}/${id.id}`)
+    const response = await axios.get(`${USER_API}/${id.id}`);
+    console.log(response)
+  return response.data;
+}

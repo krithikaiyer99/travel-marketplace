@@ -1,35 +1,58 @@
-import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useParams, useNavigate } from "react-router-dom";
 import { updateUserThunk } from "../services/user-thunk";
+import { findUserById } from "../services/user-service";
 import Header from "../header";
 import "./index.css";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const id = useParams();
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user.user);
-
-  const [firstName, setFirstName] = useState(user.firstName || "");
-  const [lastName, setLastName] = useState(user.lastName || "");
-  const [dob, setDob] = useState(
-    user.DOB || {
-      day: "",
-      month: "",
-      year: "",
-    }
-  );
+  const [user, setUser] = useState({});
+  console.log(user);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [dob, setDob] = useState({
+    day: "",
+    month: "",
+    year: "",
+  });
   const [gender, setGender] = useState(user.gender || "");
   const [phoneNumber, setPhoneNumber] = useState(user.phone || "");
 
+  useEffect(() => {
+    const getPerson = async () => {
+      const data = await findUserById(id);
+      setUser(data);
+      setFirstName(data.firstName || "");
+      setLastName(data.lastName || "");
+      const userdob = new Date(user.DOB)
+      setDob({
+        day: userdob ? userdob.getDate() : "",
+        month: userdob ? userdob.getMonth() + 1 : "",
+        year: userdob ? userdob.getFullYear() : "",
+      });
+      setGender(data.gender || "");
+      setPhoneNumber(data.phone || "");
+    };
+
+    getPerson();
+  }, []);
+
   const handleSave = () => {
+    const dateofbirth =  new Date(dob.year,dob. month - 1, dob.day)
     const updatedUser = {
       ...user,
-      firstName,
-      lastName,
-      DOB: dob,
-      gender,
+      firstName :  firstName,
+      lastName :  lastName,
+      DOB: dateofbirth,
+      gender : gender,
       phone: phoneNumber,
     };
     dispatch(updateUserThunk(updatedUser));
+    navigate("/");
   };
 
   const handleFirstNameChange = (event) => {
@@ -63,6 +86,10 @@ const Profile = () => {
 
   const handleGenderChange = (event) => {
     setGender(event.target.value);
+  };
+
+  const handlePhoneChange = (event) => {
+    setPhoneNumber(event.target.value);
   };
 
   return (
@@ -223,8 +250,8 @@ const Profile = () => {
             type="text"
             className="profile-input"
             placeholder="Phone Number"
-            value={firstName}
-            onChange={handleFirstNameChange}
+            value={phoneNumber}
+            onChange={handlePhoneChange}
           />
         </div>
         <div className="save-button" onClick={handleSave}>

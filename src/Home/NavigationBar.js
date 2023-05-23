@@ -6,6 +6,7 @@ import "./navigation.css";
 
 const NavigationBar = () => {
   const user = useSelector((state) => state.user.user);
+  console.log(user)
   return (
     <>
       <nav>
@@ -25,7 +26,7 @@ const NavigationBar = () => {
           </li>
           <li>
             {user && user.firstName ? (
-              <a href="/profile">{user.firstName}</a>
+              <a href={`/profile/${user._id}`}>{user.firstName}</a>
             ) : (
               <a href="/signin">Sign In</a>
             )}

@@ -36,3 +36,10 @@ export const updateUserThunk = createAsyncThunk(
     return await service.updateUser(user);
   }
 );
+
+export const findUserIdThunk = createAsyncThunk(
+  "user/findUserById",
+  async (id) => {
+    return await service.findUserById(id);
+  }
+);
