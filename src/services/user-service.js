@@ -14,7 +14,7 @@ export const register = async (user) => {
 
 export const updateUser = async (user) => {
     const response = await axios
-        .put(`${USER_API}/${user._id}`, user);
+        .put(`${USER_API}/update/${user._id}`, user);
     return response.data;
 }
 

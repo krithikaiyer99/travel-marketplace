@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { signinThunk } from "../services/user-thunk";
+import { signinThunk, registerThunk } from "../services/user-thunk";
 import Header from "../header";
 import "./index.css";
 
@@ -14,13 +14,23 @@ const SignIn = () => {
   const handleSignIn = (e) => {
     e.preventDefault();
     console.log("Sign in:", email, password);
-    dispatch(signinThunk({ email, password }))
-    navigate("/");
+    dispatch(signinThunk({ email, password })).then((res) => {
+      if (!res.payload) {
+        console.log(email);
+        console.log(password);
+        alert("Invalid credentials! Please enter valid credentials!");
+      } else {
+        console.log("Logged in successfully!!!");
+        console.log(res);
+        localStorage.setItem("user", JSON.stringify(res.payload));
+        navigate("/");
+      }
+    });
   };
 
   return (
     <div className="container">
-      <Header/>
+      <Header />
       <h2>Sign In</h2>
       <p className="description">
         Save an average of 15% on thousands of hotels as a member—it’s always
@@ -50,19 +60,50 @@ const SignIn = () => {
 };
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
     // Perform registration logic here
     console.log("Register:", email, password);
+    dispatch(registerThunk({ email, password, firstName, lastName })).then((res) => {
+      if (!res.payload) {
+        console.log(email);
+        console.log(password);
+        alert("Invalid credentials! Please enter valid credentials!");
+      } else {
+        console.log("Logged in successfully!!!");
+        console.log(res);
+        localStorage.setItem("user", JSON.stringify(res.payload));
+        navigate("/");
+      }
+    });
   };
 
   return (
     <div className="container">
+      <Header />
       <h2>Register</h2>
       <form onSubmit={handleRegister}>
+        <input
+          type="text"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <br />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <br />
         <input
           type="email"
           placeholder="Email"

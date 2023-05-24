@@ -15,9 +15,9 @@ const Profile = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dob, setDob] = useState({
-    day: "",
-    month: "",
-    year: "",
+    day: "1",
+    month: "1",
+    year: "2023",
   });
   const [gender, setGender] = useState(user.gender || "");
   const [phoneNumber, setPhoneNumber] = useState(user.phone || "");
@@ -52,6 +52,7 @@ const Profile = () => {
       phone: phoneNumber,
     };
     dispatch(updateUserThunk(updatedUser));
+    localStorage.setItem("user", JSON.stringify(updatedUser));
     navigate("/");
   };
 

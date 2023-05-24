@@ -24,7 +24,8 @@
   }
   
   form input[type='email'],
-  form input[type='password'] {
+  form input[type='password'], 
+  form input[type='text']{
     width: 100%;
     max-width: 400px;
     padding: 10px;

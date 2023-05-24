@@ -1,12 +1,26 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlaneDeparture } from "@fortawesome/free-solid-svg-icons";
 import "./navigation.css";
 
 const NavigationBar = () => {
-  const user = useSelector((state) => state.user.user);
-  console.log(user)
+  const [currentUser, setCurrentUser] = useState(null);
+  const getUserFromLocalStorage = () => {
+    const user = localStorage.getItem("user");
+    if (user) {
+      setCurrentUser(JSON.parse(user));
+    }
+  };
+
+  const handleLogout = () => {
+    // Clear the user from local storage and set the currentUser to null
+    localStorage.removeItem("user");
+    setCurrentUser(null);
+  };
+
+  useEffect(() => {
+    getUserFromLocalStorage();
+  }, []);
   return (
     <>
       <nav>
@@ -18,19 +32,24 @@ const NavigationBar = () => {
           <li>
             <a href="/">Home</a>
           </li>
-          <li>
-            <a href="/about">About</a>
-          </li>
-          <li>
-            <a href="/tour">Tour</a>
-          </li>
-          <li>
-            {user && user.firstName ? (
-              <a href={`/profile/${user._id}`}>{user.firstName}</a>
-            ) : (
+
+          {currentUser && currentUser.firstName ? (
+            <>
+              <li>
+                <a href={`/profile/${currentUser._id}`}>
+                  {currentUser.firstName.charAt(0).toUpperCase() +
+                    currentUser.firstName.slice(1)}
+                </a>
+              </li>
+              <li>
+                <a onClick={handleLogout}>Logout</a>
+              </li>
+            </>
+          ) : (
+            <li>
               <a href="/signin">Sign In</a>
-            )}
-          </li>
+            </li>
+          )}
         </ul>
       </nav>
       <hr className="horizontal-line" />

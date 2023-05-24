@@ -9,8 +9,7 @@ var templateUser = {
   phone: null,
   age: null,
   gender: "",
-  DOB: null,
-  bookings: [{}],
+  DOB: null
 };
 
 export const signinThunk = createAsyncThunk(
@@ -23,10 +22,12 @@ export const signinThunk = createAsyncThunk(
 export const registerThunk = createAsyncThunk(
   "user/register",
   async (user) => {
-    return await service.register( {
+    const temp = {
       ...templateUser,
       ...user
-  });
+  }
+  console.log(temp)
+  return await service.register(temp);
   }
 );
 

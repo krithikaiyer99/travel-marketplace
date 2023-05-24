@@ -25,6 +25,8 @@ const userSlice = createSlice({
     });
     builder.addCase(updateUserThunk.fulfilled, (state, { payload }) => {
       state.user = payload;
+      console.log("here in reducer")
+      console.log(state.user)
     });
   },
 });
